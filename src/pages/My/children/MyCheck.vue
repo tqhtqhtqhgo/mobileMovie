@@ -14,9 +14,11 @@
             <img :src="server+item.poster" alt="" width="100%" height="100%">
           </div>
           <div class="right">
-            <div class="movie">{{item.name}}<span class="num">{{item.ticket_num}}张</span></div>
-            <div class="date"><span class="day">{{item.show_date.split('-')[1]+'月'+item.show_date.split('-')[2]+'日'}}</span><span class="time">{{item.show_time}}</span></div>
-<!--            <div class="cinema"><span class="hall">{{item.hall_name}}</span><span class="seat" v-for="(itemSeat,valueSeat) in JSON.parse(item.order_seat_info)" :key="valueSeat">{{formatSeat(itemSeat)}}</span></div>-->
+            <div class="movie">{{item.name}}<span class="num">{{item.ticket_num}}张</span>&nbsp&nbsp&nbsp&nbsp<span>{{item.show_date.split('-')[0]+'年'+item.show_date.split('-')[1]+'月'+item.show_date.split('-')[2]+'日'}}</span><span class="time">{{item.show_time}}</span></div>
+            <div class="date"><span class="dateData" v-if="item.ticket_status==0">未验票</span></div>
+            <div class="date"><span class="dateData1" v-if="item.ticket_status==1">已验票</span></div>
+            <div class="date"><span class="dateData2" v-if="item.ticket_status==2">已失效</span></div>
+            <!--            <div class="cinema"><span class="hall">{{item.hall_name}}</span><span class="seat" v-for="(itemSeat,valueSeat) in JSON.parse(item.order_seat_info)" :key="valueSeat">{{formatSeat(itemSeat)}}</span></div>-->
 <!--            <div class="phone_code"><span>验票码： {{item.phone_code}}</span></div>-->
           </div>
 
@@ -24,7 +26,7 @@
         <div class="item-bottom">
           <div class="rright">
             <div>
-              <vue-qr :correctLevel="3" :autoColor="false" colorDark="#313a90" :bgSrc="bgSrc" :logoSrc="logoSrc" :text=item.phone_code :size=screenWidth/5 :margin="0" :logoMargin="3"></vue-qr>
+              <vue-qr :correctLevel="3" :autoColor="false" colorDark="#313a90" :text=item.phone_code+item.name+item.order_id+item.language+item.schedule_id :size=screenWidth/3 :margin="0" :logoMargin="3"></vue-qr>
             </div>
           </div>
 <!--          <div class="price">总价:<span>{{item.ticket_total_price}}元</span></div>-->
@@ -51,8 +53,8 @@ export default {
       myOrderInfo:[],
       //服务器地址
       server:'http://47.93.8.38:3002',
-      logoSrc: require('../images/userIcon.png'),
-      bgSrc: require('../images/userIcon.png'),
+      // logoSrc: require('../images/userIcon.png'),
+      // bgSrc: require('../images/userIcon.png'),
       screenWidth: document.body.clientWidth
     }
   },
@@ -70,8 +72,11 @@ export default {
         let json = await getOrderByUserId(this.$route.query.user_id);
         if (json.success_code===200){
           this.myOrderInfo = json.data;
+          // this.myOrderInfo.sort((a,b)=>{
+          //   return new Date(b.order_date)-new Date(a.order_date);
+          // });
           this.myOrderInfo.sort((a,b)=>{
-            return new Date(b.order_date)-new Date(a.order_date);
+            return a.ticket_status-b.ticket_status;
           });
         }
       }
@@ -172,10 +177,19 @@ export default {
             //margin-left .1rem
             span
               margin-left  .1rem
+            .dateData
+              font-size 0.8rem
+              color :green
+            .dateData1
+              font-size 0.8rem
+              color : #fe9a02
+            .dateData2
+              font-size 0.8rem
+              color :darkred
       .item-bottom
         margin-top .12rem
         .rright
-          margin-left 40%
+          margin-left 33.3%
   .tips
     display flex
     justify-content center
