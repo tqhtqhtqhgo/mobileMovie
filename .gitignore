@@ -14,5 +14,4 @@ yarn-error.log*
 *.sln
 *.zip
 node_moudles/
-dist/
 dist_new/
