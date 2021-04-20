@@ -43,6 +43,20 @@
           </div>
           <div class="panel">
             <div class="header">
+              <span class="black-name">本地影城</span><span class="more" @click="$router.push({path:'/cinema',query:{jsonData:0}})">全部{{CinemaList.length}}家 <span class=" icon-more"></span></span>
+            </div>
+            <div class="content">
+              <div class="item" v-for="(item,index) in CinemaList" :key="index" @click="$router.push({path:'/cinema_detail',query:{cinema_id:item.cinema_id}})">
+                <div class="left" v-if="index<2">
+                  <div class="name ellipsis">{{item.cinema_name}}</div>
+                  <div class="address ellipsis">{{item.specified_address}}</div>
+                  <div class="label-block" v-if="index=1"><span>{{item.province}}</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="header">
               <span class="blue-name">即将上映</span><span class="more" @click="$router.push({path:'/movie',query:{hotMovie:0}})">全部{{notShowMovieList.length}}部 <span class=" icon-more"></span></span>
             </div>
             <div class="body">
@@ -60,20 +74,6 @@
                     <span class="date">{{item.public_date.split('-')[1]}}月{{item.public_date.split('-')[2]}}日</span>
                     <span class="btn" @click="$router.push({path:'/select_cinema',query:{movie_id:item.movie_id}})">预售</span>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="header">
-              <span class="black-name">本地影城</span><span class="more" @click="$router.push({path:'/cinema',query:{jsonData:0}})">全部{{CinemaList.length}}家 <span class=" icon-more"></span></span>
-            </div>
-            <div class="content">
-              <div class="item" v-for="(item,index) in CinemaList" :key="index" @click="$router.push({path:'/cinema_detail',query:{cinema_id:item.cinema_id}})">
-                <div class="left" v-if="index<2">
-                  <div class="name ellipsis">{{item.cinema_name}}</div>
-                  <div class="address ellipsis">{{item.specified_address}}</div>
-                  <div class="label-block" v-if="index=1"><span>{{item.province}}</span></div>
                 </div>
               </div>
             </div>
@@ -205,7 +205,9 @@ import {getCinemaList, getMovieList, getWishMovieByUserId} from '../../api/index
       justify-content space-around
       align-items center
       &.active
-        background-color #dd2727
+        background-color darkorange
+
+        //background-color #dd2727
         transition all .2s
       .location
         border 0.0125rem solid #f1f1f1
@@ -315,6 +317,7 @@ import {getCinemaList, getMovieList, getWishMovieByUserId} from '../../api/index
           padding 0 .125rem .2rem
           .red-name
             flex 1
+            //
             color #dd2727
             font-weight 600
           .blue-name

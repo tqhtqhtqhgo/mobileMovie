@@ -22,7 +22,8 @@ import MyOrder from '../pages/My/children/MyOrder'
 import MyMovie from '../pages/My/children/MyMovie'
 import ModifyUserName from '../pages/My/children/ModifyUserName'
 import ModifyUserSign from '../pages/My/children/ModifyUserSign'
-import MyCheck from "../pages/My/children/MyCheck";
+import MCheck from "../pages/My/children/MyCheck";
+import UserFilm from "../pages/UserFilm/UserFilm";
 
 Vue.use(Router);
 
@@ -69,14 +70,16 @@ export default new Router({
       component:MyOrder
     },
     {
-      path:'/my_check',
-      name:'my_check',
-      component:MyCheck
+      path:'/m_check',
+      name:'m_check',
+      component:MCheck,
+      meta:{showTabBar:true}
     },
     {
       path:'/my_movie',
       name:'my_movie',
-      component:MyMovie
+      component:MyMovie,
+      // meta:{showTabBar:true}
     },
     {
       path:'/modify_username',
@@ -133,5 +136,10 @@ export default new Router({
       path:'/login',
       component:Login
     },
+    {
+      path:'/user_film',
+      component: UserFilm,
+      meta:{showTabBar:true}
+    }
   ]
 })

@@ -1,7 +1,7 @@
 <template>
   <div id="my-order">
     <div class="top">
-      <span class="icon-back" @click="$router.go(-1)"></span>
+<!--      <span class="icon-back" @click="$router.go(-1)"></span>-->
       <span class="name ellipsis">我的电影票</span>
     </div>
     <div class="order-container" v-if="myOrderInfo.length">
@@ -47,7 +47,7 @@ import {Indicator,MessageBox,Toast} from 'mint-ui'
 import {Message} from 'element-ui'
 import VueQr from 'vue-qr'
 export default {
-  name: "MyCheck",
+  name: "MCheck",
   data(){
     return{
       myOrderInfo:[],

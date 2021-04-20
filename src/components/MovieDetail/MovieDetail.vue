@@ -88,7 +88,7 @@
         </div>
       </div>
       <div class="buy">
-        <div class="btn" @click="$router.push({path:'/select_cinema',query:{movie_id:$route.query.movie_id}})">特惠购票</div>
+        <div class="btn" @click="$router.push({path:'/select_cinema',query:{movie_id:$route.query.movie_id}})">立即购票</div>
       </div>
     </div>
 </template>

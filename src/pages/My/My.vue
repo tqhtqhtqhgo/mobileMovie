@@ -13,14 +13,15 @@
             <span class="ellipsis">{{jsonData.sign?jsonData.sign:'同学有点懒，还没写下签名'}}</span>
           </div>
         </div>
-        <div class="right" v-if="jsonData.user_name" @click="viewUserInfo"><span>个人信息</span><span class="icon-more"></span></div>
+<!--        <div class="right" v-if="jsonData.user_name" @click="viewUserInfo"><span>个人信息</span><span class="icon-more"></span></div>-->
       </div>
       <div class="content">
           <div class="list">
-            <div class="item" @click="viewMyCheck">电子票务（二维码） <span class="icon-more"></span></div>
-            <div class="item" @click="viewMyOrder">我的订单 <span class="icon-more"></span></div>
-            <div class="item" @click="viewMyMovie(1)">想看的电影 <span class="icon-more"></span></div>
-            <div class="item" @click="viewMyMovie(0)">看过的电影 <span class="icon-more"></span></div>
+            <div class="item" @click="viewUserInfo">修改个人信息 <span class="icon-more"></span></div>
+<!--            <div class="item" @click="viewMyCheck">电子票务（二维码） <span class="icon-more"></span></div>-->
+            <div class="item" @click="viewMyOrder">订单管理 <span class="icon-more"></span></div>
+<!--            <div class="item" @click="viewMyMovie(1)">想看的电影 <span class="icon-more"></span></div>-->
+<!--            <div class="item" @click="viewMyMovie(0)">看过的电影 <span class="icon-more"></span></div>-->
           </div>
       </div>
     </div>
@@ -82,7 +83,7 @@
           },
           viewMyCheck(flag){
             if (localStorage.getItem('user_id')) {
-              this.$router.push({path:'my_check',query:{'user_id':localStorage.getItem('user_id')}});
+              this.$router.push({path:'m_check',query:{'user_id':localStorage.getItem('user_id')}});
             } else{
               this.$router.push('login');
             }

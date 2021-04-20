@@ -1,7 +1,7 @@
 <template>
     <div id="my-movie">
       <div class="top">
-        <span class="icon-back" @click="$router.go(-1)"></span>
+<!--        <span class="icon-back" @click="$router.go(-1)"></span>-->
         <span class="name ellipsis">我的电影</span>
       </div>
       <div class="movie">

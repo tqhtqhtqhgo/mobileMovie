@@ -109,6 +109,7 @@
           border none
           outline none
           background-color #f5f5f5
+          //dd2727
           caret-color #dd2727
           text-indent .125rem
           font-size .3rem !important

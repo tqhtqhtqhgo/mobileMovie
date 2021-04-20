@@ -105,6 +105,7 @@
           }
         },
         methods:{
+
           //选择登录类型
           changeLoginType(){
             this.loginType = !this.loginType
