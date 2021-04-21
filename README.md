@@ -24,53 +24,18 @@ Node后端api,前端Vue的电影订票系统。可以完全前后分离使用，
 
 ### 交互逻辑
 
-```mermaid
-graph TB;
-A[APP首页]-->B{登陆成功}
-A-->C[选择电影]
-A-->D[选择影院]
-A-->E[跳转至想看]
-A-->F[查看个人信息或订单]
-A-->FA[查看票夹]
-B-->C
-B-->D
-B-->E
-B-->F
-B-->FA
-C-->B
-D-->B
-E-->B
-F-->B
-FA-->B
-C-->G[上映电影]
-C-->H[未上映电影]
-G-->I[展示电影信息]
-H-->I
-I-->J{是否排片在售}
-J-->K[选择影院]
-K-->L[选择场次]
-L-->M[选择座位并锁定]
-M-->N[确认并提交订单倒计时15Min]
-N-->O[在线支付页面]
-O-->P[支付成功发送短信]
-Q[解锁座位]
-R{锁单失败}
-S{支付成功}
-T{支付状态未返回成功码}
-N-->R
-P-->S
-O-->T
-R-->Q
-T-->Q
-Q-->L
-S-->A
-FA-->FB[拉取用户票务信息]
-FB-->FC{此票是否为待验票}
-FC-->FD[是,显示二维码]
-FC-->FE[否,不显示二维码]
-D-->DA[显示电影院所有排片电影]
-DA-->I
-I-->IA[打分评论]
-I-->IB[点赞想看]
+
+
+
+![image-20210421212931190](/home/tong/WebstormProjects/FilmSys-master/film/RADEME/image-20210421212931190.png)
+
+### 使用方式
+
+```shell
+npm insall
+
+npm run build/npm run dev
+
 ```
 
+编译出静态文件再使用cordora或hbuilderdX打包apk或ipa，或托管
