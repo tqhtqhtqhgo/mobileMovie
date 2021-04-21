@@ -27,7 +27,7 @@ Node后端api,前端Vue的电影订票系统。可以完全前后分离使用，
 
 
 
-![image-20210421212931190](/home/tong/WebstormProjects/FilmSys-master/film/RADEME/image-20210421212931190.png)
+![image-20210421212931190](RADEME/image-20210421212931190.png)
 
 ### 使用方式
 
