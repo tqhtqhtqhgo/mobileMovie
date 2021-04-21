@@ -25,7 +25,7 @@
         </div>
         <div class="item-bottom">
           <div class="rright">
-            <div>
+            <div v-if="item.ticket_status==0">
               <vue-qr :correctLevel="3" :autoColor="false" colorDark="#313a90" :text=item.phone_code+item.name+item.order_id+item.language+item.schedule_id :size=screenWidth/3 :margin="0" :logoMargin="3"></vue-qr>
             </div>
           </div>
@@ -123,7 +123,8 @@ export default {
     position fixed
     top 0
     left 0
-    background-color #dd2727
+    //background-color #dd2727
+    background-color darkorange
     color #fff
     .icon-back
       font-size .4rem

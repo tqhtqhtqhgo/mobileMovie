@@ -111,7 +111,8 @@
       display flex
       justify-content space-between
       align-items center
-      background-color #dd2727
+      //background-color #dd2727
+      background-color darkorange
       color #fff
       position relative
       .left

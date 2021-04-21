@@ -311,7 +311,8 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #dd2727;
+    //background-color: #dd2727;
+    background-color darkorange;
     color: #fff;
 
     .icon-back {

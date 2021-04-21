@@ -20,8 +20,18 @@
         </div>
       </div>
       <div class="content">
+        <div class="phone-container">
+          <div class="phone">
+            <label>订单手机</label>
+            <el-input
+              v-model="phone"
+              clearable>
+            </el-input>
+          </div>
+          <div class="text">提示：取票码发送到所示手机上，可在影院凭码取票，亦可在电子票夹中扫码验票进场观影。</div>
+        </div>
         <div class="tips">
-          <p class="title">购票须知</p>
+          <p class="title">注意事项</p>
           <div class="intro">
             <p>1.请确认场次和时间无误，购买成功后将不予以退还</p>
             <p>2.由于设备故障等不可抗力因素，存在少量场次取消的情况，会进行退票退款</p>
@@ -30,16 +40,7 @@
             <p>5.下单即代表你同意我们的用户服务协议</p>
           </div>
         </div>
-        <div class="phone-container">
-          <div class="phone">
-            <label>手机号</label>
-            <el-input
-              v-model="phone"
-              clearable>
-            </el-input>
-          </div>
-          <div class="text">提示：手机号用于生成订单，并以短信方式将取票码发送到手机上</div>
-        </div>
+
       </div>
       <div class="bottom">
         <div class="intro">
@@ -240,7 +241,7 @@
       position fixed
       top 0
       left 0
-      background-color #779db0
+      background-color lightcoral
       color #fff
       .icon-back
         font-size .4rem
@@ -261,7 +262,7 @@
           margin-right .08rem
     .order-info
       margin-top 1rem
-      background-color #779db0
+      background-color lightcoral
       color #fff
       padding .3rem
       height 2rem
@@ -284,7 +285,8 @@
         background-color #fff
         display flex
         flex-flow column
-        margin-top .12rem
+        margin-bottom  .12rem
+        margin-top  .12rem
         /deep/ .phone
           width 100%
           box-sizing border-box
@@ -310,7 +312,7 @@
               padding 0
               letter-spacing .02rem
         .text
-          color #dd2727
+          color blue
           font-size .25rem
           line-height .4rem
           padding .25rem .3rem
@@ -328,7 +330,7 @@
           letter-spacing .02rem
           text-align justify
         .title
-          color #333
+          color darkred
           font-size .3125rem
           font-weight 700
           padding-bottom .25rem

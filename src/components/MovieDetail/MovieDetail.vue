@@ -12,11 +12,12 @@
           <div class="small ellipsis">主演：{{jsonData.actor}}</div>
           <div class="small play-time">片长：{{jsonData.movie_long}}</div>
           <div class="small show-time">上映：{{jsonData.public_date}}上映</div>
+          <div class="action">
+            <div class="btn" :class="{'active':!notWishMovie}" @click="wishBtnHandle"><span class="icon-like-fill"></span><span>想看</span></div>
+            <div class="btn" @click="watchedBtnHandle"><span class="icon-star-fill"></span><span>看过</span></div>
+          </div>
+
         </div>
-      </div>
-      <div class="action">
-        <div class="btn" :class="{'active':!notWishMovie}" @click="wishBtnHandle"><span class="icon-like-fill"></span><span>想看</span></div>
-        <div class="btn" @click="watchedBtnHandle"><span class="icon-star-fill"></span><span>看过</span></div>
       </div>
       <div class="public-praise">
         <div class="header">
@@ -318,7 +319,7 @@ import { formatDate } from '../../common/util/util';
       width 90%
       padding .2rem
       box-sizing border-box
-      height 3rem
+      height 3.5rem
       margin 1rem auto 0
       background-color #fff
       display flex
@@ -327,7 +328,7 @@ import { formatDate } from '../../common/util/util';
       color #333
       border-radius .2rem
       img
-        width 28%
+        width 33%
         box-sizing border-box
         border-radius .05rem
       .describe
@@ -335,34 +336,34 @@ import { formatDate } from '../../common/util/util';
         .name
           font-size .345rem
           font-weight 700
-          margin-bottom .12rem
+          margin-bottom .10rem
         .small
-          font-size .28rem
-          margin-bottom .12rem
-    .action
-      width 90%
-      height 1rem
-      margin 0 auto
-      background-color #fff
-      display flex
-      justify-content space-around
-      align-items center
-      border-radius .2rem
-      .btn
-        font-size .4rem
-        width 36%
-        height .6rem
-        border-radius .3rem
-        background-color #ffb400
-        display flex
-        justify-content center
-        align-items center
-        &.active
-          background-color #fff1d4
-          color #fe9a02
-        span:last-child
-          font-size .25rem
-          margin-left .1rem
+          font-size .26rem
+          margin-bottom .10rem
+        .action
+          width 90%
+          height 1rem
+          //margin 0 auto
+          background-color #fff
+          display flex
+          justify-content space-around
+          align-items center
+          //border-radius .2rem
+          .btn
+            font-size .4rem
+            width 36%
+            height .6rem
+            border-radius .3rem
+            background-color #ffb400
+            display flex
+            justify-content center
+            align-items center
+            &.active
+              background-color #fff1d4
+              color #fe9a02
+            span:last-child
+              font-size .25rem
+              margin-left .1rem
     .public-praise
       width 90%
       height auto
@@ -431,6 +432,7 @@ import { formatDate } from '../../common/util/util';
         color #fff
         margin-bottom .25rem
       .content
+
         text-align justify
         font-size .28rem
         line-height .4rem
@@ -532,7 +534,8 @@ import { formatDate } from '../../common/util/util';
       .btn
         width 90%
         height .8rem
-        background-color #dd2727
+        //background-color #dd2727
+        background-color darkorange
         display flex
         justify-content center
         align-items center

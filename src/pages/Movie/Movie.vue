@@ -86,7 +86,8 @@
       height 1rem
       width 100%
       font-size .3125rem
-      background-color #dd2727
+      //background-color #dd2727
+      background-color darkorange;
       color white
       position fixed
       left 0

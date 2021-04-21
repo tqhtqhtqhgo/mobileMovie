@@ -4,10 +4,10 @@
         <img :src="$route.path.includes('/home') ? tabBarImgArr[0].active:tabBarImgArr[0].normal">
         <span :class="{on:$route.path.includes('/home')}">首页</span>
       </span>
-      <span class="tab-item" @click="switchTo('/movie')">
-        <img :src="$route.path.includes('/movie') ? tabBarImgArr[1].active:tabBarImgArr[1].normal">
-        <span :class="{on:$route.path.includes('/movie')}">电影</span>
-      </span>
+<!--      <span class="tab-item" @click="switchTo('/movie')">-->
+<!--        <img :src="$route.path.includes('/movie') ? tabBarImgArr[1].active:tabBarImgArr[1].normal">-->
+<!--        <span :class="{on:$route.path.includes('/movie')}">电影</span>-->
+<!--      </span>-->
       <span class="tab-item" @click="switchTo('/user_film?user_id='+user_id+'&wish_movie=1')">
         <img :src="$route.path.includes('/user_film') ? tabBarImgArr[2].active:tabBarImgArr[2].normal">
         <span :class="{on:$route.path.includes('/user_film?user_id='+user_id+'&wish_movie=1')}">想看</span>

@@ -61,7 +61,8 @@
         justify-content space-between
         align-items center
         height 1rem
-        background-color #dd2727
+        //background-color #dd2727
+        background-color darkorange;
         color white
         position relative
         .location

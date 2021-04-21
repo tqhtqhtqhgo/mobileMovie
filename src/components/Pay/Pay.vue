@@ -22,8 +22,8 @@
         </div>
       </div>
       <div class="pay-type">
-        <div class="wechat type"><span class="icon icon-wechat"></span><p>微信支付</p><span :class="[{'icon-circle-selected-fill':selectPayType},{'icon-circle-unselect':!selectPayType}]" @click="selectPayType?selectPayType:selectPayType=!selectPayType"></span></div>
-        <div class="alipay type"><span class="icon icon-alipay"></span><p>支付宝</p><span :class="[{'icon-circle-selected-fill':!selectPayType},{'icon-circle-unselect':selectPayType}]" @click="!selectPayType?selectPayType:selectPayType=!selectPayType"></span></div>
+        <div class="wechat type"><span class="icon icon-wechat"></span><p>Wechat</p><span :class="[{'icon-circle-selected-fill':selectPayType},{'icon-circle-unselect':!selectPayType}]" @click="selectPayType?selectPayType:selectPayType=!selectPayType"></span></div>
+        <div class="alipay type"><span class="icon icon-alipay"></span><p>Alipay</p><span :class="[{'icon-circle-selected-fill':!selectPayType},{'icon-circle-unselect':selectPayType}]" @click="!selectPayType?selectPayType:selectPayType=!selectPayType"></span></div>
       </div>
       <div class="bottom">
         <div class="pay-btn" @click="handlePay">确认支付</div>
@@ -233,7 +233,8 @@
       position fixed
       top 0
       left 0
-      background-color #dd2727
+      //background-color #dd2727
+      background-color darkorange
       color #fff
       .icon-back
         font-size .4rem
