@@ -1,8 +1,8 @@
 <template>
     <div id="home">
         <div :class="['search-header',{'active':headerActive}]">
-          <span class="location">成都</span>
-          <span class="search"><span class="icon-search"></span><input type="text" placeholder="找电影、影院" @focus="$router.push('search_all')"></span>
+          <span class="location">Chengdu</span>
+          <span class="search"><span class="icon-search"></span><input type="text" placeholder="Search films and local cinema" @focus="$router.push('search_all')"></span>
 <!--          <span class="date"><span class="calender"><span class="day">{{new Date().getDate()<10?'0'+new Date().getDate():new Date().getDate()}}</span></span></span>-->
         </div>
         <div class="swiper-container">
@@ -26,7 +26,7 @@
         <div class="main">
           <div class="panel">
             <div class="header">
-              <span class="red-name">正在热映</span><span class="more" @click="$router.push({path:'/movie',query:{hotMovie:1}})">全部{{hotMovieList.length}}部 <span class=" icon-more"></span></span>
+              <span class="red-name">Now in theaters</span><span class="more" @click="$router.push({path:'/movie',query:{hotMovie:1}})">Total&nbsp;{{hotMovieList.length}}<span class=" icon-more"></span></span>
             </div>
             <div class="body">
               <div class="item" v-for="(item,index) in hotMovieList.slice(0, 6)" :key="index">
@@ -37,13 +37,13 @@
                     <span class="score" v-if="item.score"><i class="interger">{{item.score.toFixed(1).split('.')[0]}}</i>.<i class="fraction">{{item.score.toFixed(1).split('.')[1]}}</i></span>
                   </div>
                 </div>
-                <div class="buy" @click="$router.push({path:'/select_cinema',query:{movie_id:item.movie_id}})">购票</div>
+                <div class="buy" @click="$router.push({path:'/select_cinema',query:{movie_id:item.movie_id}})">Buy</div>
               </div>
             </div>
           </div>
           <div class="panel">
             <div class="header">
-              <span class="black-name">本地影城</span><span class="more" @click="$router.push({path:'/cinema',query:{jsonData:0}})">全部{{CinemaList.length}}家 <span class=" icon-more"></span></span>
+              <span class="black-name">Local cinemas</span><span class="more" @click="$router.push({path:'/cinema',query:{jsonData:0}})">Total&nbsp;{{CinemaList.length}} <span class=" icon-more"></span></span>
             </div>
             <div class="content">
               <div class="item" v-for="(item,index) in CinemaList" :key="index" @click="$router.push({path:'/cinema_detail',query:{cinema_id:item.cinema_id}})">
@@ -57,22 +57,22 @@
           </div>
           <div class="panel">
             <div class="header">
-              <span class="blue-name">即将上映</span><span class="more" @click="$router.push({path:'/movie',query:{hotMovie:0}})">全部{{notShowMovieList.length}}部 <span class=" icon-more"></span></span>
+              <span class="blue-name">Coming soon</span><span class="more" @click="$router.push({path:'/movie',query:{hotMovie:0}})">Total&nbsp;{{notShowMovieList.length}}<span class=" icon-more"></span></span>
             </div>
             <div class="body">
               <div class="item" v-for="(item,index) in notShowMovieList.slice(0,6)" :key="index">
                 <img :src="server+item.poster" alt="" @click="$router.push({path:'/movie_detail',query:{movie_id:item.movie_id}})">
                 <div style="position: relative">
                   <div class="peopleNumber">
-                    <span class="number" v-if="item.wish_num" style="font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;font-size: .3rem;font-weight: 600">{{item.wish_num}}</span><span v-if="item.wish_num">人想看</span>
-                    <span class="number" v-else>暂无想看</span>
+                    <span class="number" v-if="item.wish_num" style="font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;font-size: .3rem;font-weight: 600">{{item.wish_num}}</span><span v-if="item.wish_num"> Wanted</span>
+                    <span class="number" v-else>No wanted</span>
                   </div>
                 </div>
                 <div class="presell">
                   <div class="name ellipsis">{{item.name}}</div>
                   <div class="info">
-                    <span class="date">{{item.public_date.split('-')[1]}}月{{item.public_date.split('-')[2]}}日</span>
-                    <span class="btn" @click="$router.push({path:'/select_cinema',query:{movie_id:item.movie_id}})">预售</span>
+                    <span class="date">{{item.public_date.split('-')[1]}}/{{item.public_date.split('-')[2]}}/2021</span>
+                    <span class="btn" @click="$router.push({path:'/select_cinema',query:{movie_id:item.movie_id}})">Booking</span>
                   </div>
                 </div>
               </div>
@@ -80,7 +80,7 @@
           </div>
           <div class="panel">
             <div class="header">
-              <span class="red-name">猜你喜欢</span><span class="more"></span>
+              <span class="red-name">Recommend</span><span class="more"></span>
             </div>
             <div class="body">
               <div class="item" v-for="(item,index) in IwishMovie.slice(0, 6)" :key="index">

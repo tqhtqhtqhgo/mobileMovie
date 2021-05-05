@@ -2,7 +2,7 @@
     <div id="submit-order">
       <div class="top">
         <span class="icon-back" @click="backSeatInfo"></span>
-        <span class="name ellipsis">确认订单</span>
+        <span class="name ellipsis">Ensure your order</span>
         <div class="time-down">
           <span class="icon-time"></span><span class="time">{{countdownM | timeFilter}}:{{countdownS | timeFilter}}</span>
         </div>
@@ -28,26 +28,26 @@
               clearable>
             </el-input>
           </div>
-          <div class="text">提示：取票码发送到所示手机上，可在影院凭码取票，亦可在电子票夹中扫码验票进场观影。</div>
+          <div class="text">Attention: You will recive a SMS include the thicket check code, and you also can check by the QR code.</div>
         </div>
         <div class="tips">
-          <p class="title">注意事项</p>
+          <p class="title">Some</p>
           <div class="intro">
-            <p>1.请确认场次和时间无误，购买成功后将不予以退还</p>
-            <p>2.由于设备故障等不可抗力因素，存在少量场次取消的情况，会进行退票退款</p>
-            <p>3.由于影院系统不稳定等因素，存在出票失败的情况，会进行退款</p>
-            <p>4.购票成功后，会收到取票码</p>
-            <p>5.下单即代表你同意我们的用户服务协议</p>
+            <p>1.Please confirm that the number and time are correct, and will not be returned after successful purchase</p>
+            <p>2.Due to the equipment failure and other force majeure factors, there are a small number of cancellations, the ticket will be refunded</p>
+            <p>3.Due to the instability of the cinema system and other factors, there is a case of ticket failure, and a refund will be made</p>
+            <p>4.After the ticket is successful, you will receive the ticket collection code</p>
+            <p>5.You agree to our user service agreement on your behalf when you place an order</p>
           </div>
         </div>
 
       </div>
       <div class="bottom">
         <div class="intro">
-          <div class="text">开场前15分钟可在我的订单页面退票</div>
-          <div class="total">应支付<span class="money">{{(Number(scheduleInfo.price)*this.seatCount).toFixed(2)}}</span><span>元</span></div>
+          <div class="text">You can cancel the order before 15 min the movie begin.</div>
+          <div class="total">Will pay<span class="money">{{(Number(scheduleInfo.price)*this.seatCount).toFixed(2)}}</span><span>$</span></div>
         </div>
-        <div class="submit-btn" @click="handleSubmitOrder">提交订单</div>
+        <div class="submit-btn" @click="handleSubmitOrder">Submit order</div>
       </div>
     </div>
 </template>

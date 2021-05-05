@@ -7,7 +7,7 @@
           <div class="avatar">
             <img :src="avatar" alt="">
           </div>
-          <span @click="$router.push('login')" v-if="!jsonData.user_id" class="go-login">登录/注册</span>
+          <span @click="$router.push('login')" v-if="!jsonData.user_id" class="go-login">Sign &nbsp;in/Sign&nbsp; up</span>
           <div v-else class="user-info">
             <span class="ellipsis" style="font-size: .375rem;line-height: .6rem;margin-bottom: .12rem">{{jsonData.user_name}}</span>
             <span class="ellipsis">{{jsonData.sign?jsonData.sign:'同学有点懒，还没写下签名'}}</span>
@@ -17,9 +17,9 @@
       </div>
       <div class="content">
           <div class="list">
-            <div class="item" @click="viewUserInfo">修改个人信息 <span class="icon-more"></span></div>
+            <div class="item" @click="viewUserInfo">Edited user information <span class="icon-more"></span></div>
 <!--            <div class="item" @click="viewMyCheck">电子票务（二维码） <span class="icon-more"></span></div>-->
-            <div class="item" @click="viewMyOrder">订单管理 <span class="icon-more"></span></div>
+            <div class="item" @click="viewMyOrder">Order management <span class="icon-more"></span></div>
 <!--            <div class="item" @click="viewMyMovie(1)">想看的电影 <span class="icon-more"></span></div>-->
 <!--            <div class="item" @click="viewMyMovie(0)">看过的电影 <span class="icon-more"></span></div>-->
           </div>

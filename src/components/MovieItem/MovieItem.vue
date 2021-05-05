@@ -5,17 +5,17 @@
       <div class="info">
         <div class="name" @click="$router.push({path:'/movie_detail',query:{movie_id:item.movie_id}})" v-html="ruleName(item.name)"></div>
         <div v-if="new Date()-new Date(item.public_date)>=0">
-          <div class="descInfo" v-if="item.score">评分：<span class="number">{{item.score.toFixed(1)}}</span></div>
-          <div class="descInfo" v-else>暂无评分</div>
+          <div class="descInfo" v-if="item.score">Mark：<span class="number">{{item.score.toFixed(1)}}</span></div>
+          <div class="descInfo" v-else>No marked</div>
         </div>
         <div v-else>
-          <div class="descInfo" v-if="item.wish_num">想看：<span class="number">{{item.wish_num}}</span>人想看</div>
-          <div class="descInfo" v-else>暂无想看</div>
+          <div class="descInfo" v-if="item.wish_num">Liked：<span class="number">{{item.wish_num}}</span>&nbsp;want</div>
+          <div class="descInfo" v-else>No wanted</div>
         </div>
-        <div class="descInfo">类型：{{item.type}}</div>
-        <div class="descInfo ellipsis">主演：<span>{{item.actor}}</span></div>
+        <div class="descInfo">Type：{{item.type}}</div>
+        <div class="descInfo ellipsis">Actress：<span>{{item.actor}}</span></div>
       </div>
-      <span class="buy" :class="{pre_sell: new Date(item.public_date)-new Date()>0}" @click="$router.push({path:'/select_cinema',query:{movie_id:item.movie_id}})">{{new Date(item.public_date)-new Date()>0?'预售':'购票'}}</span>
+      <span class="buy" :class="{pre_sell: new Date(item.public_date)-new Date()>0}" @click="$router.push({path:'/select_cinema',query:{movie_id:item.movie_id}})">{{new Date(item.public_date)-new Date()>0?'Order':'Buy'}}</span>
     </div>
   </div>
 </template>

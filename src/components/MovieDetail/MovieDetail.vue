@@ -8,23 +8,23 @@
         <img :src="server+jsonData.poster" alt="">
         <div class="describe">
           <div class="name">{{jsonData.name}}</div>
-          <div class="small type">类型：{{jsonData.type}}</div>
-          <div class="small ellipsis">主演：{{jsonData.actor}}</div>
-          <div class="small play-time">片长：{{jsonData.movie_long}}</div>
-          <div class="small show-time">上映：{{jsonData.public_date}}上映</div>
+          <div class="small type">Types：{{jsonData.type}}</div>
+          <div class="small ellipsis">Actress：{{jsonData.actor}}</div>
+          <div class="small play-time">Time：{{jsonData.movie_long}}</div>
+          <div class="small show-time">Public Date：{{jsonData.public_date}}</div>
           <div class="action">
-            <div class="btn" :class="{'active':!notWishMovie}" @click="wishBtnHandle"><span class="icon-like-fill"></span><span>想看</span></div>
-            <div class="btn" @click="watchedBtnHandle"><span class="icon-star-fill"></span><span>看过</span></div>
+            <div class="btn" :class="{'active':!notWishMovie}" @click="wishBtnHandle"><span class="icon-like-fill"></span><span>Star</span></div>
+            <div class="btn" @click="watchedBtnHandle"><span class="icon-star-fill"></span><span>Mark</span></div>
           </div>
 
         </div>
       </div>
       <div class="public-praise">
         <div class="header">
-          <div class="title">口碑</div>
+          <div class="title">Mark</div>
           <div class="wish" v-if="isShowMovie">
-            <span v-if="jsonData.wish_num">{{jsonData.wish_num}}人想看</span>
-            <span v-else>暂无想看</span>
+            <span v-if="jsonData.wish_num">{{jsonData.wish_num}}&nbsp; wants</span>
+            <span v-else>No wanted</span>
           </div>
         </div>
           <div class="mark" v-if="isShowMovie">
@@ -36,8 +36,8 @@
               />
             </div>
             <div class="right">
-              <div class="score">{{this.averageScore?this.averageScore:0}}<span class="small">分</span></div>
-              <div class="score-people">{{commentNum?commentNum:'暂无'}}人评</div>
+              <div class="score">{{this.averageScore?this.averageScore:0}}<span class="small">mark</span></div>
+              <div class="score-people">{{commentNum?commentNum:'No comments'}}&nbsp;people</div>
             </div>
           </div>
           <div class="wish" v-else>
@@ -45,23 +45,23 @@
           </div>
       </div>
       <div class="intro">
-        <div class="title">简介</div>
+        <div class="title">Introduction</div>
         <div class="content">
           {{jsonData.intro}}
         </div>
       </div>
       <div class="comment">
         <div class="header">
-          <span class="title">评论</span><span class="join" @click="watchedBtnHandle">参与评论</span>
+          <span class="title">Comment</span><span class="join" @click="watchedBtnHandle">Send</span>
         </div>
         <div class="content">
           <div class="comment-container" v-if="currentUserCommentDate.length">
-            <span class="title">我的讨论</span>
+            <span class="title">My discuss</span>
             <div class="comment-item">
               <div class="left"><img :src="server+currentUserCommentDate[0].avatar" alt=""></div>
               <div class="right">
                 <div class="user-name">{{currentUserCommentDate[0].user_name}}</div>
-                <div class="scored">给这部作品打了{{currentUserCommentDate[0].user_score}}分</div>
+                <div class="scored">Give &nbsp;{{currentUserCommentDate[0].user_score}}&nbsp;marks.</div>
                 <div class="comment-content">{{currentUserCommentDate[0].comment_content}}</div>
                 <div class="bottom">
                   <span class="comment-date">{{formatCommentDate(currentUserCommentDate[0].comment_date)}}</span>
@@ -71,12 +71,12 @@
             </div>
           </div>
           <div class="comment-container comment-list-container" v-if="otherUserCommentDate.length">
-            <span class="title">精选评论</span>
+            <span class="title">Selected comments</span>
             <div class="comment-item" v-for="(item,index) in otherUserCommentDate" :key="index">
               <div class="left"><img :src="server+item.avatar" alt=""></div>
               <div class="right">
                 <div class="user-name">{{item.user_name}}</div>
-                <div class="scored">给这部作品打了{{item.user_score}}分</div>
+                <div class="scored">Give &nbsp;{{item.user_score}}&nbsp;marks.</div>
                 <div class="comment-content">{{item.comment_content}}</div>
                 <div class="bottom">
                   <span class="comment-date">{{formatCommentDate(item.comment_date)}}</span>
@@ -85,11 +85,11 @@
               </div>
             </div>
           </div>
-          <span class="tips" v-if="!currentUserCommentDate.length&&!otherUserCommentDate.length">暂无评论！</span>
+          <span class="tips" v-if="!currentUserCommentDate.length&&!otherUserCommentDate.length">No comment！</span>
         </div>
       </div>
       <div class="buy">
-        <div class="btn" @click="$router.push({path:'/select_cinema',query:{movie_id:$route.query.movie_id}})">立即购票</div>
+        <div class="btn" @click="$router.push({path:'/select_cinema',query:{movie_id:$route.query.movie_id}})">By now</div>
       </div>
     </div>
 </template>

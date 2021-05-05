@@ -2,22 +2,22 @@
   <div id="my-order">
     <div class="top">
 <!--      <span class="icon-back" @click="$router.go(-1)"></span>-->
-      <span class="name ellipsis">我的电影票</span>
+      <span class="name ellipsis">My tickets</span>
     </div>
     <div class="order-container" v-if="myOrderInfo.length">
       <div class="item" v-for="(item,value) in myOrderInfo">
         <div class="item-top">
-          <span class="cinema-name">{{item.cinema_name}}</span><span class="status">已完成</span>
+          <span class="cinema-name">{{item.cinema_name}}</span><span class="status">Finished order</span>
         </div>
         <div class="item-center">
           <div class="left">
             <img :src="server+item.poster" alt="" width="100%" height="100%">
           </div>
           <div class="right">
-            <div class="movie">{{item.name}}<span class="num">{{item.ticket_num}}张</span>&nbsp&nbsp&nbsp&nbsp<span>{{item.show_date.split('-')[0]+'年'+item.show_date.split('-')[1]+'月'+item.show_date.split('-')[2]+'日'}}</span><span class="time">{{item.show_time}}</span></div>
-            <div class="date"><span class="dateData" v-if="item.ticket_status==0">未验票</span></div>
-            <div class="date"><span class="dateData1" v-if="item.ticket_status==1">已验票</span></div>
-            <div class="date"><span class="dateData2" v-if="item.ticket_status==2">已失效</span></div>
+            <div class="movie">{{item.name}}<span class="num">{{item.ticket_num}}&nbsp;Ticket</span>&nbsp&nbsp&nbsp&nbsp<span>{{item.show_date.split('-')[0]+'/'+item.show_date.split('-')[1]+'/'+item.show_date.split('-')[2]+'/'}}</span><span class="time">{{item.show_time}}</span></div>
+            <div class="date"><span class="dateData" v-if="item.ticket_status==0">Available</span></div>
+            <div class="date"><span class="dateData1" v-if="item.ticket_status==1">Checked</span></div>
+            <div class="date"><span class="dateData2" v-if="item.ticket_status==2">Failure</span></div>
             <!--            <div class="cinema"><span class="hall">{{item.hall_name}}</span><span class="seat" v-for="(itemSeat,valueSeat) in JSON.parse(item.order_seat_info)" :key="valueSeat">{{formatSeat(itemSeat)}}</span></div>-->
 <!--            <div class="phone_code"><span>验票码： {{item.phone_code}}</span></div>-->
           </div>

@@ -2,14 +2,14 @@
     <div id="date_picker" v-show="showPickerModel">
       <div class="dp_container">
         <div class="dp_header">
-          <div class="dp_current_year" :class="{'active':changeContentFlag}" @click="showYearPicker()" >{{this.currentYear}}年</div>
-          <div class="dp_current_date" :class="{'active':!changeContentFlag}" @click="showDatePicker()" >{{this.currentMonth+1}}月{{this.currentDay}}日周{{this.week}}</div>
+          <div class="dp_current_year" :class="{'active':changeContentFlag}" @click="showYearPicker()" >{{this.currentYear}}/</div>
+          <div class="dp_current_date" :class="{'active':!changeContentFlag}" @click="showDatePicker()" >{{this.currentMonth+1}}/{{this.currentDay}}/{{this.week}}</div>
         </div>
         <div class="dp_content">
           <div class="dp_date_content" v-show="!changeContentFlag">
             <div class="dp_switch_month">
               <span class="dp_left dp_arrow" :class="{'dp_arrow_hide':this.startDate-new Date(this.year,this.month,1)>=0}" @click="preMonth"></span>
-              <span class="dp_current_month">{{this.year}}年{{this.month+1}}月</span>
+              <span class="dp_current_month">{{this.year}}/{{this.month+1}}</span>
               <span class="dp_right dp_arrow" :class="{'dp_arrow_hide':this.endDate-new Date(this.year,this.month+1,1)<=0}" @click="nextMonth"></span>
             </div>
             <div class="dp_weeks">

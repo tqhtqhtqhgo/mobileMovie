@@ -2,18 +2,18 @@
   <div id="my-movie">
     <div class="top">
       <!--        <span class="icon-back" @click="$router.go(-1)"></span>-->
-      <span class="name ellipsis">我的电影</span>
+      <span class="name ellipsis">My films</span>
     </div>
     <div class="movie">
       <div class="option">
-        <span :class="{active:!isWatched}" @click="isWatched=false;">想看</span>
-        <span :class="{active:isWatched}" @click="isWatched=true;">看过</span>
+        <span :class="{active:!isWatched}" @click="isWatched=false;">Liked</span>
+        <span :class="{active:isWatched}" @click="isWatched=true;">Marked</span>
       </div>
       <div v-show="!isWatched" class="want">
         <movie-item :movie-list="wishMovie"></movie-item>
         <div class="tips" v-if="wishMovie.length===0">
           <span class="icon icon-empty-content"></span>
-          <span class="text">暂时木有内容呀</span>
+          <span class="text">No content</span>
         </div>
       </div>
       <div v-show="isWatched" class="watched">
@@ -22,7 +22,7 @@
           <div class="info">
             <div class="name">{{item.name}}</div>
             <div class="my-score">
-              <span>我评：</span>
+              <span>My mark：</span>
               <el-rate
                 v-model="item.user_score/2"
                 allow-half
@@ -34,7 +34,7 @@
         </div>
         <div class="tips" v-if="isWatchedMovie.length===0">
           <span class="icon icon-empty-content"></span>
-          <span class="text">暂时木有内容呀</span>
+          <span class="text">No content</span>
         </div>
       </div>
     </div>

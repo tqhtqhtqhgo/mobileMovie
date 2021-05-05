@@ -2,11 +2,11 @@
     <div id="pay">
       <div class="top">
         <span class="icon-back" @click="back"></span>
-        <span class="name ellipsis">支付订单</span>
+        <span class="name ellipsis">Pay for order</span>
       </div>
       <div class="order-info">
         <div class="time-down">
-          <div class="title">支付剩余时间</div>
+          <div class="title">Left Time</div>
           <div class="time">
             <div class="minute"><span>{{countdown_m_b}}</span><span>{{countdown_m_s}}</span></div>
             <p>:</p>
@@ -17,7 +17,7 @@
           <span class="left icon-shop"></span>
           <div class="right">
             <div class="total">¥{{this.Tprice.toFixed(2)}}</div>
-            <div class="num">订单编号：{{this.OrderNum}}</div>
+            <div class="num">Order Number：{{this.OrderNum}}</div>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
         <div class="alipay type"><span class="icon icon-alipay"></span><p>Alipay</p><span :class="[{'icon-circle-selected-fill':!selectPayType},{'icon-circle-unselect':selectPayType}]" @click="!selectPayType?selectPayType:selectPayType=!selectPayType"></span></div>
       </div>
       <div class="bottom">
-        <div class="pay-btn" @click="handlePay">确认支付</div>
+        <div class="pay-btn" @click="handlePay">Ensure</div>
       </div>
     </div>
 </template>
@@ -157,7 +157,7 @@
                 localStorage.removeItem('order_phone');
                 clearInterval(this.timer);
                 Toast({
-                  message: '解除座位锁定成功',
+                  message: 'Unlock',
                   position: 'middle',
                   duration: 2000
                 });
@@ -167,11 +167,11 @@
           async handlePay(){
             let info;
             if (this.selectPayType){
-              info = '您的微信将支付￥'+(Number(localStorage.getItem('total_price')).toFixed(2))+'元';
+              info = 'Your wechat will pay:'+(Number(localStorage.getItem('total_price')).toFixed(2))+'D';
             } else{
-              info = '您的支付宝将支付￥'+(Number(localStorage.getItem('total_price')).toFixed(2))+'元';
+              info = 'Your alipay will pay'+(Number(localStorage.getItem('total_price')).toFixed(2))+'D';
             }
-            MessageBox.confirm(info,'支付提示').then(async action =>{
+            MessageBox.confirm(info,'Attention').then(async action =>{
               if (action==='confirm'){
                   let seatArr = [];
                   if (localStorage.getItem('seat_1')) {
@@ -197,7 +197,7 @@
                     (this.selectPayType?0:1)
                   );
                   if (json.success_code===200){
-                    MessageBox.alert('您的取票码为:'+json.data.phone_code,'支付成功');
+                    MessageBox.alert('This ticket code is:'+json.data.phone_code,'Success');
                   }
                   localStorage.removeItem('seat_1');
                   localStorage.removeItem('seat_2');

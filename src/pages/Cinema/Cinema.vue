@@ -2,8 +2,8 @@
     <div id="cinema">
       <div class="header">
         <div class="nav">
-          <span class="location">成都</span>
-          <span class="title">影院</span>
+          <span class="location">Chengdu</span>
+          <span class="title">Cinema</span>
           <span class=" icon-search" @click="$router.push('search_cinema')"></span>
         </div>
       </div>
@@ -12,7 +12,7 @@
           <div class="left">
             <div class="name ellipsis">{{item.cinema_name}}</div>
             <div class="address ellipsis">{{item.specified_address}}</div>
-            <div class="label-block"><span>小吃</span><span>4D厅</span><span>巨幕厅</span><span>杜比全景声厅</span></div>
+            <div class="label-block"><span>IMAX</span><span>3D</span><span>4D</span><span>Food&nbsp; Service</span></div>
           </div>
         </div>
       </div>

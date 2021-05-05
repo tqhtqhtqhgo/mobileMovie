@@ -2,7 +2,7 @@
     <div id="tab-bar">
       <span class="tab-item" @click="switchTo('/home')">
         <img :src="$route.path.includes('/home') ? tabBarImgArr[0].active:tabBarImgArr[0].normal">
-        <span :class="{on:$route.path.includes('/home')}">首页</span>
+        <span :class="{on:$route.path.includes('/home')}">Home</span>
       </span>
 <!--      <span class="tab-item" @click="switchTo('/movie')">-->
 <!--        <img :src="$route.path.includes('/movie') ? tabBarImgArr[1].active:tabBarImgArr[1].normal">-->
@@ -10,15 +10,15 @@
 <!--      </span>-->
       <span class="tab-item" @click="switchTo('/user_film?user_id='+user_id+'&wish_movie=1')">
         <img :src="$route.path.includes('/user_film') ? tabBarImgArr[2].active:tabBarImgArr[2].normal">
-        <span :class="{on:$route.path.includes('/user_film?user_id='+user_id+'&wish_movie=1')}">想看</span>
+        <span :class="{on:$route.path.includes('/user_film?user_id='+user_id+'&wish_movie=1')}">Liked</span>
       </span>
       <span class="tab-item" @click="switchTo('/m_check?user_id='+user_id)">
         <img :src="$route.path.includes('/m_check') ? tabBarImgArr[4].active:tabBarImgArr[4].normal">
-        <span :class="{on:$route.path.includes('/m_check?user_id='+user_id)}">票夹</span>
+        <span :class="{on:$route.path.includes('/m_check?user_id='+user_id)}">Ticket</span>
       </span>
       <span class="tab-item" @click="switchTo('/my')">
         <img :src="$route.path.includes('/my') ? tabBarImgArr[3].active:tabBarImgArr[3].normal">
-        <span :class="{on:$route.path.includes('/my')}">我的</span>
+        <span :class="{on:$route.path.includes('/my')}">User</span>
       </span>
     </div>
 </template>

@@ -2,12 +2,12 @@
   <div id="my-info">
     <div class="top">
       <span class="icon-back" @click="$router.go(-1)"></span>
-      <span class="name ellipsis">我的资料</span>
+      <span class="name ellipsis">My info</span>
     </div>
     <div class="info-container">
       <div class="list">
         <div class="item">
-          头像
+          UserLogo
           <div class="right">
             <img
               :src="avatar"
@@ -33,27 +33,27 @@
           class="item"
           @click.prevent="$router.push({name:'modify_username',params:{userName:userName}})"
         >
-          <span>用户名</span>
+          <span>User</span>
           <span class="right">
             {{userName?userName:'未填写'}}
             <i class="icon-more"></i>
           </span>
         </div>
         <div class="item" @click.prevent="showSexPanel=true">
-          <span>性别</span>
+          <span>Genders</span>
           <span class="right">
             {{userSex?userSex:'未填写'}}
             <i class="icon-more"></i>
           </span>
         </div>
         <div class="item" @click.prevent="changeUserPwd">
-          <span>密码</span>
+          <span>Change &nbsp;password</span>
           <span class="right">
             <i class="icon-more"></i>
           </span>
         </div>
         <div class="item" @click="showDatePicker=true">
-          <span>生日</span>
+          <span>Birthday</span>
           <span class="right">
             {{birthday}}
             <i class="icon-more"></i>
@@ -63,7 +63,7 @@
           class="item sign"
           @click.prevent="$router.push({name:'modify_usersign',params:{sign:sign}})"
         >
-          <span>个人签名</span>
+          <span>Slogan</span>
           <span class="right">
             <span class="ellipsis sign">{{sign?sign:'未填写'}}</span>
             <i class="icon-more"></i>
@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="logout">
-        <span class="logout-btn" @click="logout()">退出</span>
+        <span class="logout-btn" @click="logout()">Log&nbsp;out</span>
       </div>
     </div>
     <div class="modify_sex" v-show="showSexPanel" @click="showSexPanel=false">

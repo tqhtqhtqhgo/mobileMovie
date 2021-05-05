@@ -9,8 +9,8 @@
       <div class="intro"><span class="date">{{scheduleInfo.show_date|dateFilter}}</span><span class="time">{{scheduleInfo.show_time}}</span><span class="language">{{movieInfo.language}}3D</span></div>
     </div>
     <div class="seat-block">
-      <div class="screen">{{scheduleInfo.hall_name}}银幕</div>
-      <div class="center">银幕中央</div>
+      <div class="screen">{{scheduleInfo.hall_name}}Middle</div>
+      <div class="center">Middle line</div>
       <div class="screen-line"></div>
       <div class="row-container">
         <span>1</span>
@@ -31,24 +31,24 @@
         </div>
       </div>
       <div class="seat-example">
-        <div class="example empty-example"><span class="icon icon-empty-seat"></span>可选</div>
-        <div class="example sold-example"><span class="icon icon-sold-seat"></span>不可选</div>
-        <div class="example selected-example"><span class="icon icon-selected-seat"></span>已选</div>
+        <div class="example empty-example"><span class="icon icon-empty-seat"></span>Available</div>
+        <div class="example sold-example"><span class="icon icon-sold-seat"></span>Disable</div>
+        <div class="example selected-example"><span class="icon icon-selected-seat"></span>Selected</div>
       </div>
     </div>
     <div class="bottom">
-      <div class="title" v-if="selectedSeat">已选座位</div>
+      <div class="title" v-if="selectedSeat">Select</div>
       <div class="selected-seat" v-if="selectedSeat">
         <div class="seat-item" v-for="(item,index) in selectedSeatInfo" :key="index">
           <div class="left">
-            <span class="seat">{{item[0]+1}}排{{item[1]+1}}座</span>
-            <span class="price">{{(scheduleInfo.price).toFixed(2)}}元</span>
+            <span class="seat">{{item[0]+1}}Line{{item[1]+1}}Seat</span>
+            <span class="price">{{(scheduleInfo.price).toFixed(2)}}$</span>
           </div>
           <span class="right icon-close" @click="cancelSelectedSeat(item[0],item[1])"></span>
         </div>
       </div>
-      <span class="btn" v-if="!selectedSeat">请先选座</span>
-      <span class="btn active" v-else @click="ensureSeatBtn">确认选座</span>
+      <span class="btn" v-if="!selectedSeat">Please select</span>
+      <span class="btn active" v-else @click="ensureSeatBtn">Ensure your select</span>
     </div>
   </div>
 </template>
